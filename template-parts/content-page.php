@@ -10,13 +10,27 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
-
 	<?php bonnie_hazen_post_thumbnail(); ?>
 
-	<div class="entry-content">
+    <nav id="site-navigation" class="main-navigation">
+        <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'bonnie-hazen' ); ?></button>
+        <?php
+        wp_nav_menu(
+            array(
+                'theme_location' => 'menu-1',
+                'menu_id'        => 'primary-menu',
+            )
+        );
+        ?>
+    </nav><!-- #site-navigation -->
+
+    <?php if ( !is_front_page() ) : ?>
+    <header class="entry-header">
+        <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+    </header><!-- .entry-header -->
+    <?php endif; ?>
+
+    <div class="entry-content">
 		<?php
 		the_content();
 

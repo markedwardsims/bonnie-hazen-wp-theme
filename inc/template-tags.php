@@ -128,24 +128,35 @@ if ( ! function_exists( 'bonnie_hazen_post_thumbnail' ) ) :
 			?>
 
 			<div class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
+                <div class="hero">
+                    <?php the_post_thumbnail('post-thumbnail', ['class' => 'hero__image']); ?>
+
+                    <div class="hero-content">
+                        <span class="hero-content__subtitle">The Latest</span>
+                        <h1 class="hero-content__title">What is Dharma?</h1>
+                        <p class="hero-content__description">The first time I heard Dharma, I was listening to a Sahara Rose Highest Self podcast...</p>
+                    </div>
+
+                </div>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
 
 			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 				<?php
-					the_post_thumbnail(
-						'post-thumbnail',
-						array(
-							'alt' => the_title_attribute(
-								array(
-									'echo' => false,
-								)
-							),
-						)
-					);
+//					the_post_thumbnail(
+//						'post-thumbnail',
+//						array(
+//							'alt' => the_title_attribute(
+//								array(
+//									'echo' => false,
+//								)
+//							),
+//						)
+//					);
 				?>
+                <?php $thumb = get_the_post_thumbnail_url(); ?>
+                <div class="hero" style="background-image: url('<?php echo $thumb;?>')"></div>
 			</a>
 
 			<?php
