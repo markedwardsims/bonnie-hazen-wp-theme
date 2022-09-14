@@ -180,3 +180,19 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Shortcode support
  */
 include('custom-shortcodes.php');
+
+/**
+ * Image size support
+ */
+add_theme_support( 'post-thumbnails' );
+
+add_image_size( 'post-image', 1400, 400, true );
+add_image_size( 'post-preview', 400, 400, true );
+
+add_filter( 'image_size_names_choose', 'bonnie_hazen_custom_image_sizes' );
+function bonnie_hazen_custom_image_sizes( $sizes ) : array {
+    return array_merge( $sizes, array(
+        'post-image' => __( 'Post Image' ),
+        'post-preview' => __( 'Post Preview' ),
+    ) );
+}

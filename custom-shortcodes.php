@@ -35,7 +35,7 @@ function post_list_function($args) : string {
 
     // assemble the output
     foreach ($ids as $id) {
-        $img = has_post_thumbnail($id) ? get_the_post_thumbnail($id, [400, 400])  : '<span class="post-list-item__no-image"></span>';
+        $img = has_post_thumbnail($id) ? get_the_post_thumbnail($id, 'post-preview')  : '<span class="post-list-item__no-image"></span>';
         $excerpt = has_excerpt($id) ? wpautop(get_the_excerpt($id)) : '';
         $category = !empty(get_the_category($id)) ? wpautop(get_the_category($id)[0]->name) : null;
         $out[] = "

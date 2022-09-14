@@ -129,7 +129,7 @@ if ( ! function_exists( 'bonnie_hazen_post_thumbnail' ) ) :
 
 			<div class="post-thumbnail">
                 <div class="hero">
-                    <?php the_post_thumbnail('post-thumbnail', ['class' => 'hero__image']); ?>
+                    <?php the_post_thumbnail('post-image', ['class' => 'hero__image']); ?>
 
                     <div class="hero-content">
                         <span class="hero-content__subtitle">The Latest</span>
